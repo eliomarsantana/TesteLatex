@@ -3,6 +3,7 @@ import java.util.List;
 
 import org.jbibtex.ParseException;
 import org.jbibtex.TokenMgrException;
+import net.davidashen.text.Hyphenator; 
 
 class Principal {
 
@@ -22,15 +23,25 @@ class Principal {
 				+ "\\subsection{Análise de Requisitos}\\vskip 1em Segundo \\cite{KOTONYA:SOMMERVILLE}, a análise de requisitos tem por objetivo tratar do processo "
 				+ "de definição dos requisitos de software. Para isso, todas as atividades de desenvolvimento precisam ser criteriosamente elaboradas e desenvolvidas. Com isso, foi de suma importância fazer uma análise de requisitos para saber o escopo mais próximo do real que a ferramenta irá atingir.\\vskip 1em ";
 
-				org.jbibtex.LaTeXParser latexParser = new org.jbibtex.LaTeXParser();
+				//org.jbibtex.LaTeXParser latexParser = new org.jbibtex.LaTeXParser();
 
-				List<org.jbibtex.LaTeXObject> latexObjects = latexParser.parse(latexString);
+				//List<org.jbibtex.LaTeXObject> latexObjects = latexParser.parse(latexString);
 
-				org.jbibtex.LaTeXPrinter latexPrinter = new org.jbibtex.LaTeXPrinter();
+				//org.jbibtex.LaTeXPrinter latexPrinter = new org.jbibtex.LaTeXPrinter();
 
-				String plainTextString = latexPrinter.print(latexObjects);
+				//String plainTextString = latexPrinter.print(latexObjects);
 				
-				System.out.println(plainTextString);
+				//System.out.println(plainTextString);
+				
+				
+				
+				Hyphenator teste = new Hyphenator();
+				
+				//teste.setErrorHandler(new MyErrorHandler());
+				teste.loadTable(new java.io.BufferedInputStream(new java.io.FileInputStream("/home/eliomar/tcceliomar/main.tex")));
+				String hyphenated_word=teste.hyphenate("palavra");
+				
+				System.out.println("------------->>> "+hyphenated_word);
 		
 	}
 	
@@ -63,5 +74,6 @@ class Principal {
   }
 }
 	 * */
-
+	
+	
 }
