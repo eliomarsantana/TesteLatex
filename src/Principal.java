@@ -23,6 +23,13 @@ class Principal {
 		
 		String dados = new String(Files.readAllBytes(new File("C:\\Users\\eliom\\Documents\\tcc\\main.tex").toPath()),Charset.forName("UTF-8").displayName());
 
+		/*TESTAR ISSO
+		Charset cs = Charset.forName("UTF-8"); 
+		String dados = new String(Files.readAllBytes(new File("/home/eliomar/TCC-ADS-EliomarSantana/main.tex").toPath()), cs);
+		OU ISSO
+		Charset.forName("UTF-8").encode(dados);
+		*/
+		
 		//BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\eliom\\Documents\\tcc\\main.tex"), "UTF-8"));
 		
 		int count = 0;
