@@ -17,11 +17,13 @@ public class Teste {
 
 	public static void main(String[] args) {
 		try {
-			Path startPath = Paths.get("/home/eliomar/tcceliomar");
+			//Path startPath = Paths.get("/home/eliomar/tcceliomar");
+			Path startPath = Paths.get("C:\\Users\\eliom\\Documentos");
+			
 			Files.walkFileTree(startPath, new SimpleFileVisitor<Path>() {
 				@Override
 				public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
-					//System.out.println("Diretório: " + dir.toString());
+					System.out.println("Diretório: " + dir.toString());
 					return FileVisitResult.CONTINUE;
 				}
 
@@ -29,7 +31,7 @@ public class Teste {
 				public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException{
 					System.out.println("Arquivo: " + file.toString());
 					
-					if (file.toString().endsWith(".tex")) {
+					if (file.toString().endsWith(".txt")) {}
 						String dados = new String(Files.readAllBytes(new File(file.toString()).toPath()));
 						
 						 LaTeXParser latexParser = null;
@@ -55,7 +57,7 @@ public class Teste {
 						 System.out.println(plainTextString);
 						
 						System.out.println(dados);
-					}
+					
 					return FileVisitResult.CONTINUE;
 				}
 
@@ -65,7 +67,7 @@ public class Teste {
 				}
 			});
 		} catch (IOException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 
 	}
